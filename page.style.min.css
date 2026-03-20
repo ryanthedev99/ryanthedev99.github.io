@@ -75,6 +75,54 @@ p {
     color: white;
 }
 
+.projects-section {
+    margin-top: 60px;
+    text-align: center;
+}
+
+.projects-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #6ec1ff;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    padding: 20px;
+    border-radius: 15px;
+
+    background: rgba(0, 140, 255, 0.08);
+    backdrop-filter: blur(10px);
+
+    border: 1px solid rgba(0, 140, 255, 0.2);
+
+    box-shadow: 0 0 15px rgba(0, 140, 255, 0.2);
+
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 0 40px rgba(0, 140, 255, 0.5);
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    color: #00aaff;
+}
+
+.project-card p {
+    font-size: 15px;
+    color: #cfe9ff;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;
