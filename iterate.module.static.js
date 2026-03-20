@@ -1,4 +1,4 @@
-export function iterate(items, items2 = [], items3 = []) {
+function iterate(items, items2 = [], items3 = []) {
     items.forEach(item => {
         item.addEventListener('mouseenter', function() {
             fixCusor(false);
