@@ -1,4 +1,4 @@
-function iterate(items, items2 = [], items3 = []) {
+export function iterate(items, items2 = [], items3 = []) {
     items.forEach(item => {
         item.addEventListener('mouseenter', function() {
             fixCusor(false);
@@ -28,3 +28,5 @@ function iterate(items, items2 = [], items3 = []) {
         }); 
     }
 }
+
+module.exports = { iterate };
