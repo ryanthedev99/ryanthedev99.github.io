@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>battery api</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                max-width: 800px;
+                margin: 50px auto;
+                padding: 20px;
+                background-color: #f5f5f5;
+            }
+            h1 {
+                color: #333;
+                border-bottom: 3px solid #007bff;
+                padding-bottom: 10px;
+            }
+            h2 {
+                color: #555;
+                background-color: #e9ecef;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            p {
+                color: #666;
+                line-height: 1.6;
+            }
+            #pps {
+                background-color: #f8f9fa;
+                padding: 10px;
+                border-left: 4px solid #007bff;
+                font-family: monospace;
+                overflow-x: auto;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/themes/prism.css" rel="stylesheet" />
+
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/prism.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-core.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-clike.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-javascript.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-python.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/components/prism-java.min.js"></script>
+  
+        <script src="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/prismjs@1.30.0/plugins/line-numbers/prism-line-numbers.css" rel="stylesheet" />
+    </head>
+
+    
+
+    <body>
+        <h1>Test Ryan's battery API</h1>
+        <h2 id="level">Level: </h2>
+        <h2 id="levelfloat">Level Float: </h2>
+        <h2 id="charging">Charging: </h2>
+        <h1>Want to use this API?</h1>
+        <p id="pp">Add this in your <code class="language-markup">&lt;head&gt;&lt;/head&gt;</code> tag</p>
+        <pre><code id="pps" class="language-javascript">&lt;script src=&quot;https://ryanthedev99.github.io/projects/battery-api/api.script.js&quot;&gt;&lt;/script&gt;</code></pre>
+        
+        <script src="battery-level.js"></script>
+        <script>
+            function igrab(id) {
+                return document.getElementById(id);
+            }
+            let battery = new batteryListener();
+            const level = igrab("level");
+            const levelfloat = igrab("levelfloat");
+            const charging = igrab("charging");
+            
+
+            battery.addEventListener("chargeupdate", function() {
+                charging.textContent = "Charging: " + battery.charging;
+            })
+            battery.addEventListener("levelupdate", function() {
+                level.textContent = "Level: " + battery.level;
+                levelfloat.textContent = "Level Float: " + battery.levelfloat;
+            })
+        </script>
+    </body>
+</html>
