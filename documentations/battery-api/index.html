@@ -147,16 +147,27 @@
         
         <p>Inside here, we will add a battery listener</p>
         <pre><code class="language-javascript">const myListener = new batteryListener();</code></pre>
-        <p>You can now access all variables of the live listener, like level, charging, and the float form of the level.</p>
-        <pre><code class="language-javascript">let currentCharge = myListener.level;
-let currentChargeFloat = myListener.levelfloat;
-let isCharging = myListener.charging;</code></pre>
+        <p>You can now access all variables of the live listener, like level, charging, and the float form of the level. BUT, make sure to add your ready event to make sure your variables are ready to access.</p>
+        <pre><code class="language-javascript">
+let currentCharge = 0;
+let currentChargeFloat = 0.00;
+let isCharging = false;
+myListener.ready.then(() => {
+    currentCharge = myListener.level;
+    currentChargeFloat = myListener.levelfloat;
+    isCharging = myListener.charging;
+})            
+</code></pre>
         <p>Want to preview your listener variables?</p>
         <pre><code class="language-javascript">
+// myListener.ready.then(() =>) { ...
+// set variables ...
+
 // log the variables
 console.log(currentCharge)
 console.log(currentChargeFloat)
 console.log(isCharging)
+
 // example output:
 // 58
 // 0.58
@@ -165,6 +176,8 @@ console.log(isCharging)
 
         <h1>How to add event listeners for live updates</h1>
         <pre><code class="language-javascript">const myListener = new batteryListener() // create a listener
+
+// these events are for updates and DO NOT need ready events.
 myListener.addEventListener("levelupdate", funtion() {
     // event listeners for level update (58 - 59) OR (58 - 57)
     console.log(`BATTERY STATUS: %${myListener.level}`)
